@@ -188,8 +188,8 @@ http_conn::LINE_STATUS http_conn::parse_line()
         }
 
          //如果当前字符是\n，也有可能读取到完整行
-31        //一般是上次读取到\r就到buffer末尾了，没有接收完整，再次接收时会出现这种情况
-        else if (temp == '\n')   //换行
+        // 一般是上次读取到\r就到buffer末尾了，没有接收完整，再次接收时会出现这种情况
+        else if (temp == '\n') // 换行
         {
             if (m_checked_idx > 1 && m_read_buf[m_checked_idx - 1] == '\r') //\r\n :回车加换行
             {
@@ -738,14 +738,17 @@ bool http_conn::add_linger()
 {
     return add_response("Connection:%s\r\n", (m_linger == true) ? "keep-alive" : "close");
 }
+
 bool http_conn::add_blank_line()
 {
     return add_response("%s", "\r\n");
 }
+
 bool http_conn::add_content(const char *content)
 {
     return add_response("%s", content);
 }
+
 bool http_conn::process_write(HTTP_CODE ret)
 {
     switch (ret)

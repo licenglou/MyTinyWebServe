@@ -45,7 +45,7 @@ threadpool<T>::threadpool( int actor_model, connection_pool *connPool, int threa
     for (int i = 0; i < thread_number; ++i)
     {
         if (pthread_create(m_threads + i, NULL, worker, this) != 0)
-        {
+        {                         
             delete[] m_threads;
             throw std::exception();
         }
