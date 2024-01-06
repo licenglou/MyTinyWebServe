@@ -3,9 +3,10 @@
 
 int main(int argc, char *argv[])
 {
+    // 需要修改的数据库信息,登录名,密码,库名
     string user = "root";
-    string passwd = "root";
-    string databasename = "qgydb";
+    string passwd = "Lcl1097@";
+    string databasename = "yourdb";
     // 命令行解析，获取配置
     Config config;
     config.parse_arg(argc, argv);
